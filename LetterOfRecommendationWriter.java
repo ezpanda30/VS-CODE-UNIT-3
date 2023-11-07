@@ -4,6 +4,12 @@ import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
 
+//Citations:
+//https://www.javatpoint.com/java-hashmap - All these links Helped me to use Hashmap along with some help from ChatGpt to intergrate it into my code
+//https://www.programiz.com/java-programming/hashmap  
+//https://stackoverflow.com/questions/34601003/i-have-a-hashmap-how-can-i-integrate-it-with-gui-i-want-to-type-in-the-integer 
+//
+
 public class LetterOfRecommendationWriter {
 
     public static void main(String[] args) {
@@ -26,7 +32,6 @@ class InfoPage extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(8, 2));
 
-        // Initialize components
         JLabel teacherLabel = new JLabel("Teacher Information:");
         teacherFullName = new JTextField(20);
         teacherSchool = new JTextField(20);
@@ -40,9 +45,8 @@ class InfoPage extends JFrame {
         studentGPA = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 4.0, 0.1));
         studentAPClasses = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
 
-        // Add components to the frame
         add(teacherLabel);
-        add(new JLabel("")); // Empty label for spacing
+        add(new JLabel(""));
         add(new JLabel("Full Name:"));
         add(teacherFullName);
         add(new JLabel("School:"));
@@ -55,7 +59,7 @@ class InfoPage extends JFrame {
         add(teacherDate);
 
         add(studentLabel);
-        add(new JLabel("")); // Empty label for spacing
+        add(new JLabel(""));
         add(new JLabel("Student Name:"));
         add(studentName);
         add(new JLabel("Gender:"));
@@ -68,10 +72,9 @@ class InfoPage extends JFrame {
         JButton nextButton = new JButton("Next");
         add(nextButton);
 
-        // Add action listener to the Next button
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Retrieve input data and move to the next frame
+
                 Map<String, String> teacherInfo = new HashMap<>();
                 teacherInfo.put("Full Name", teacherFullName.getText());
                 teacherInfo.put("School", teacherSchool.getText());
@@ -106,7 +109,6 @@ class StudentRating extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(11, 2));
 
-        // Initialize components
         JLabel[] labels = {
                 new JLabel("Leadership"), new JLabel("Participation"), new JLabel("Work Ethic"),
                 new JLabel("Attitude"), new JLabel("Listening Skills"), new JLabel("Collaboration"),
@@ -123,19 +125,17 @@ class StudentRating extends JFrame {
 
         JLabel ratingLabel = new JLabel("Rating Descriptions:");
 
-        // Add components to the frame
         for (int i = 0; i < 9; i++) {
             add(labels[i]);
             add(sliders[i]);
         }
 
-        add(new JLabel("")); // Empty label for spacing
+        add(new JLabel(""));
         add(ratingLabel);
 
         JButton nextButton = new JButton("Next");
         add(nextButton);
 
-        // Add action listener to the Next button
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Map<String, Integer> ratings = new HashMap<>();
