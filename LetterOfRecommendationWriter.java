@@ -435,9 +435,9 @@ class StudentRating extends JFrame {
             StringBuilder letter = new StringBuilder();
 
             letter.append("To Whom It May Concern,\n\n");
-            letter.append("I am writing to highly recommend ").append(studentInfo.get("Student Name"))
-                    .append(" for any academic pursuit. ");
-            letter.append("In my role as a teacher, I have had the privilege of having ")
+            letter.append("I would like to recommend my student ").append(studentInfo.get("Student Name"))
+                    .append(" for the 2024-2025 school year. ");
+            letter.append("I have had the privilege of being ")
                     .append(studentInfo.get("Student Name"));
             letter.append(" in my class, and it has been a truly remarkable experience.\n\n");
             letter.append("Teacher Information:\n");
