@@ -4,14 +4,7 @@ import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
 
-//Citations:
-//https://www.javatpoint.com/java-hashmap - All these links Helped me to use Hashmap along with some help from ChatGpt to intergrate it into my code
-//https://www.programiz.com/java-programming/hashmap  
-//https://stackoverflow.com/questions/34601003/i-have-a-hashmap-how-can-i-integrate-it-with-gui-i-want-to-type-in-the-integer 
-//
-
 public class LetterOfRecommendationWriter {
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             InfoPage infoPage = new InfoPage();
@@ -31,10 +24,8 @@ class InfoPage extends JFrame {
         setSize(600, 300); // Wider window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Use a BorderLayout for the main container
         setLayout(new BorderLayout());
 
-        // Create two panels for teacher and student information
         JPanel teacherPanel = new JPanel(new GridLayout(5, 2, 10, 10));
         JPanel studentPanel = new JPanel(new GridLayout(5, 2, 10, 10));
 
@@ -73,7 +64,6 @@ class InfoPage extends JFrame {
         studentPanel.add(new JLabel("Number of AP Classes:"));
         studentPanel.add(studentAPClasses);
 
-        // Create a bottom panel for the "Next" button
         JPanel buttonPanel = new JPanel();
         JButton nextButton = new JButton("Next");
         buttonPanel.add(nextButton);
@@ -101,10 +91,7 @@ class InfoPage extends JFrame {
 
         add(teacherPanel, BorderLayout.WEST);
         add(studentPanel, BorderLayout.EAST);
-
-        // Add the button panel to the bottom
         add(buttonPanel, BorderLayout.SOUTH);
-
     }
 }
 
@@ -174,8 +161,8 @@ class StudentRating extends JFrame {
         String pronounSubject = "they";
         String pronounPossessive = "their";
         String pronounObject = "them";
-        String genderPronoun = studentInfo.get("Gender").equals("She/Her") ? "she" : "he";
-        String genderPronounCap = studentInfo.get("Gender").equals("She/Her") ? "She" : "He";
+        String genderPronoun = studentGender.equals("She/Her") ? "she" : "he";
+        String genderPronounCap = studentGender.equals("She/Her") ? "She" : "He";
 
         if (studentGender.equals("He/Him")) {
             pronounSubject = "he";
@@ -194,23 +181,25 @@ class StudentRating extends JFrame {
                         + " finds it hard to take initiative when collaborating with others and also with communication.";
             } else if (value < 7) {
                 return "While " + pronounSubject + " does occasionally show flashes of leadership, " +
-                        pronounPossessive + " lack of willingness to communicate during class hinders "
-                        + pronounPossessive + " potential.";
+                        pronounPossessive + " lack of willingness to communicate during class hinders " +
+                        pronounPossessive + " potential.";
             } else if (value < 9) {
                 return pronounSubject
                         + " is a leader and regularly takes the initiative when the opportunity is presented during times of collaboration.";
             } else {
-                return pronounSubject +
-                        " always takes the initiative when working with others while taking the time to make sure everyone on "
-                        + pronounPossessive + " team is on the same page.";
+                return pronounSubject
+                        + " always takes the initiative when working with others while taking the time to make sure everyone on "
+                        +
+                        pronounPossessive + " team is on the same page.";
             }
         }
 
         if (category.equals("Participation")) {
             if (value < 4) {
                 return "Unfortunately, " + genderPronoun
-                        + " rarely participates during class discussions or asks questions. This often leads to poor performance on tests and quizzes, which may hinder "
-                        + genderPronoun + " in college courses.";
+                        + " rarely participates during class discussions or asks questions. " +
+                        "This often leads to poor performance on tests and quizzes, which may hinder " + genderPronoun
+                        + " in college courses.";
             } else if (value < 7) {
                 return genderPronounCap
                         + " occasionally asks for help on unfamiliar concepts, but participation in class discussions remains minimal.";
@@ -260,10 +249,10 @@ class StudentRating extends JFrame {
                 return genderPronounCap
                         + " is an exceptional student who consistently displays a stellar attitude inside and outside the classroom.";
             }
-        } else if (category.equals("Listening")) {
+        } else if (category.equals("Listening Skills")) {
             if (value < 4) {
                 return genderPronounCap
-                        + " faces challenges in paying attention to the material but demonstrates the capability to understand the concepts.";
+                        + " faces challenges when paying attention to the material being taught in class but demonstrates the capability to understand the concepts.";
             } else if (value < 7) {
                 return genderPronounCap + " has an adequate level of listening skills to understand class content.";
             } else if (value < 9) {
