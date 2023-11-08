@@ -187,21 +187,21 @@ class StudentRating extends JFrame {
         if (category.equals("Leadership")) {
             if (value < 4) {
                 return "Although " + pronounSubject + "  tries to take any leadership position very seriously, " +
-                        pronounSubject
-                        + "leadership skills are not at a high enough level to effectively lead" + pronounSubject
+                        pronounPossessive
+                        + "leadership skills are not at a high enough level to effectively lead" + pronounPossessive
                         + " group to success. ";
             } else if (value < 7) {
                 return "Although being a leader isn't a natural quality " + pronounSubject + " possesses, "
                         + pronounSubject + " continues to show some progress in this area with " + pronounObject
                         + " determination and dedication. ";
             } else if (value < 9) {
-                return pronounSubject
-                        + " possesses great leadership potential through her collaboration during group activities. With even more practice, I have no doubt"
+                return genderPronounCap
+                        + " possesses great leadership potential through collaboration during group activities. With even more practice, I have no doubt"
                         + pronounSubject + " will become a marveolous leader";
 
             } else {
-                return pronounSubject +
-                        " possesses the rare and natural talent to effortlessly lead a group with " + pronounObject
+                return genderPronounCap +
+                        " possesses the rare and natural talent to effortlessly lead a group with " + pronounPossessive
                         + " unwavering confidence and friendly persona. ";
             }
         }
@@ -219,17 +219,18 @@ class StudentRating extends JFrame {
             } else if (value < 7) {
                 return genderPronounCap
                         + " occasionally asks me for help on concepts " + pronounSubject + " may not understand, but "
-                        + pronounObject + " participation during class discussions usually stay to a minimum. ";
+                        + pronounPossessive + " participation during class discussions usually stay to a minimum. ";
             } else if (value < 9) {
                 return genderPronounCap
                         + "regularly asks me questions about about past or new concepts that we have learned. Although sometimes hesitant to give"
-                        + pronounObject + " personal " +
+                        + pronounPossessive + " personal " +
                         "input during class discussions," + pronounObject
                         + " is usually not afraid to reach out to for further explanation. ";
             } else {
                 return genderPronounCap +
                         " is unafraid to ask questions on any concepts that may concern " + pronounObject + ". "
-                        + pronounSubject + " regularly raises " + pronounObject + " hand to quench " + pronounObject
+                        + genderPronounCap + " regularly raises " + pronounPossessive + " hand to quench "
+                        + pronounPossessive
                         + " urge to " +
                         "understand even the minor details. ";
 
@@ -244,19 +245,19 @@ class StudentRating extends JFrame {
                         + "does not take advantage of the class time I provide for students to work on homework. ";
             } else if (value < 7) {
                 return genderPronounCap + "  provides an acceptable amount of effort in my class. For the most part, "
-                        + genderPronoun + " tries to turn in most of " + pronounObject
+                        + genderPronoun + " tries to turn in most of " + pronounPossessive
                         + " work on time, and sometimes utilizes the " + "provided class time to study or do "
-                        + pronounObject + " homework. ";
+                        + pronounPossessive + " homework. ";
             } else if (value < 9) {
                 return genderPronounCap + " has a great work ethic when it comes to my class. For the most part, "
-                        + pronounObject + "'s scores on tests reflect the time and effort " + pronounSubject
+                        + pronounPossessive + " scores on tests reflect the time and effort " + pronounSubject
                         + " puts into the class. ";
             } else {
                 return genderPronounCap
-                        + " has an excellent work ethic in my class. " + pronounSubject
+                        + " has an excellent work ethic in my class. " + genderPronounCap
                         + " has never submitted an assignment late, and it's clear how " + pronounSubject
-                        + " carefully reviews " + pronounObject + " multiple times to ensure that" + pronounSubject
-                        + " understands the concepts. ";
+                        + " carefully reviews " + pronounPossessive + " work multiple times to ensure that" +
+                        pronounSubject + " understands the concepts. ";
             }
         }
 
@@ -264,20 +265,27 @@ class StudentRating extends JFrame {
 
         else if (category.equals("Personality")) {
             if (value < 4) {
-                return genderPronoun
+                return genderPronounCap
                         + " hasn't made much effort to get to know the other students in class, so I haven't seen "
                         + genderPronoun + " personality shine through yet. " + "I would hope that one day "
-                        + genderPronoun + " would open up to me and " + genderPronoun + " other classmates. ";
+                        + genderPronoun + " would open up to me and " + pronounPossessive + " other classmates. ";
             } else if (value < 7) {
-                return genderPronounCap
-                        + " shows politeness when greeting but can sometimes appear distracted during conversations.";
+                return genderPronounCap +
+                        " shows " + pronounPossessive
+                        + " politeness when greeting me at the beginning of class, but sometimes when I engage in a conversation with "
+                        + pronounObject + ", " + pronounSubject + " appears " +
+                        "distracted and inattentive to our conversations. ";
             } else if (value < 9) {
-                return "The student keeps the class atmosphere amusing with silliness and humor.";
+                return pronounSubject + " keeps the class atmosphere amusing with " + pronounPossessive
+                        + " silliness and humor. ";
             } else {
                 return genderPronounCap
-                        + " is an extremely silly person who always successfully makes others laugh and emanates positivity.";
+                        + " is a great student and friend to be around that emanates positivity wherever "
+                        + pronounSubject + " goes. ";
             }
         }
+
+        // Attitude
 
         else if (category.equals("Attitude")) {
             if (value < 4) {
@@ -292,82 +300,141 @@ class StudentRating extends JFrame {
                 return genderPronounCap
                         + " is an exceptional student who consistently displays a stellar attitude inside and outside the classroom.";
             }
-        } else if (category.equals("Listening Skills")) {
+        }
+
+        // Listening Skills
+        else if (category.equals("Listening Skills")) {
             if (value < 4) {
                 return genderPronounCap
-                        + " faces challenges when paying attention to the material being taught in class but demonstrates the capability to understand the concepts.";
-            } else if (value < 7) {
-                return genderPronounCap + " has an adequate level of listening skills to understand class content.";
-            } else if (value < 9) {
-                return genderPronounCap + " has commendable listening skills, absorbing content efficiently.";
-            } else {
-                return genderPronounCap
-                        + " has a great talent for listening and makes peers feel heard and understood.";
-            }
-        } else if (category.equals("Collaboration")) {
-            if (value < 4) {
-                return "Although the student has potential, their collaboration is an area they can vastly improve on, often struggling to contribute effectively to group efforts.";
+                        + " will often intercede during my discussions with disrespectful comments and shows a disinterest in the subject. ";
             } else if (value < 7) {
                 return genderPronounCap
-                        + " demonstrates satisfactory collaboration capabilities, allowing them to contribute to group projects.";
+                        + " generally brings an okay attitude to my class. I believe it is important to note that despite "
+                        + pronounPossessive + " lack of effort, it is only sometimes reflected on " + pronounPossessive
+                        + " test scores. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + " possesses the remarkable ability to make positive contributions in any team or group.";
+                        + " has displayed a very positive attitude in my classroom that I would like to commend. "
+                        + genderPronounCap + " is very courteous when interacting with me and " + pronounPossessive
+                        + " classmates, and " + pronounSubject
+                        + " never hesitates to ask further questions on certain concepts. ";
             } else {
                 return genderPronounCap
-                        + " never fails to impress with willingness to offer assistance and is a wonderful partner to collaborate with.";
-            }
-        } else if (category.equals("Dependability")) {
-            if (value < 4) {
-                return "The student's lack of reliability in meeting deadlines and completing assignments is not tolerable and needs improvement.";
-            } else if (value < 7) {
-                return genderPronounCap
-                        + " is usually pretty dependable when assisting peers and contributing to group projects.";
-            } else if (value < 9) {
-                return genderPronounCap
-                        + " effectively manages to meet commitments and contributes reliably to group efforts.";
-            } else {
-                return genderPronounCap
-                        + " has an outstanding track record of dependability, serving as a role model for peers.";
+                        + " is very proactive on " + pronounPossessive
+                        + " homework assignments by completing as much as possible over the weekend. Students look to "
+                        + pronounObject + " to be their role model for superb work habits. ";
+
             }
         }
+
+        // Listening
 
         if (category.equals("Listening Skills")) {
             if (value < 4) {
                 return genderPronounCap
-                        + " faces challenges when paying attention to the material being taught in class but demonstrates the capability to understand the concepts.";
+                        + " faces significant challenges when paying attention to the material being taught in class. "
+                        + genderPronounCap
+                        + " is routinely found disengaged from the information in my lectures which will not serve "
+                        + pronounObject + " well in college and beyond. ";
             } else if (value < 7) {
                 return genderPronounCap
-                        + " has an adequate level of listening skills to understand the concepts being taught in class.";
+                        + " has an adequate level of listening skills to understand the concepts being taught in class. Although "
+                        + pronounSubject + " doesn't particularly excel in this area, it is acceptable enough for "
+                        + pronounObject + " to decently contribute to class discussions. ";
             } else if (value < 9) {
-                return genderPronounCap + " has commendable listening skills that serve well in class.";
+                return genderPronounCap + " has a commendable level of listening skills that serves " + pronounObject
+                        + " well in class. " + genderPronounCap
+                        + " is able to absorb the content at a good rate that allows " + pronounObject + " to complete "
+                        + pronounPossessive + " homework and assignments efficiently. ";
             } else {
                 return genderPronounCap
-                        + " has a great talent for listening and makes peers feel heard and understood.";
+                        + " has a great talent for listening which has treated " + pronounObject
+                        + " well in the learning environment. In " + pronounObject + "relationships, " + pronounSubject
+                        + " has the rare ability to make her peers feel heard and understood. ";
             }
-        } else if (category.equals("Adept")) {
+        }
+
+        // Collaboration
+
+        else if (category.equals("Collaboration")) {
             if (value < 4) {
-                return "Although " + genderPronoun
-                        + " has potential, there's room for improvement in the adeptness of certain skills or subjects.";
+                return "Although " + pronounSubject + " has a lot of potential, " + pronounPossessive
+                        + " collaboration is an area " + pronounSubject + " can vastly improve on. " + genderPronounCap
+                        + " often struggles to effectively contribute to group efforts and discussions and can often even hinder the group. ";
             } else if (value < 7) {
                 return genderPronounCap
-                        + " demonstrates satisfactory skills in the area, with potential for further improvement.";
+                        + " demonstrates satisfactory collaboration capabilities, allowing " + pronounObject
+                        + " to somewhat contribute to group projects. Although " + pronounSubject
+                        + " shows a willingness to work with others, getting along with others more effectively is certainly an area "
+                        + pronounSubject + " can grow in. ";
             } else if (value < 9) {
-                return genderPronounCap + " excels in the subject and consistently displays adeptness.";
+                return genderPronounCap
+                        + " has a natural talent to bring out the best in " + pronounPossessive
+                        + " classmates, which contributes to " + pronounPossessive
+                        + " group's ability to be productive. ";
             } else {
-                return genderPronounCap + " is exceptionally adept in the subject and stands out as a role model.";
+                return genderPronounCap
+                        + " is very adaptable, solution-oriented, and has an open persona that makes " + pronounObject
+                        + " a wonderful partner to collaborate with. This unique skill will certainly serve "
+                        + pronounObject + " well in " + pronounPossessive + " academic and professional settings. ";
             }
-        } else if (category.equals("Creativity")) {
+        }
+
+        // Dependability
+
+        else if (category.equals("Dependability")) {
             if (value < 4) {
-                return genderPronounCap
-                        + " needs to work on expressing creativity and originality in assignments and projects.";
+                return "I understand that " + pronounSubject
+                        + " is a very busy individual with many extracurriculars, but " + pronounPossessive
+                        + " lack of reliability in meeting deadlines and completing assignments is not tolerable. ";
             } else if (value < 7) {
-                return genderPronounCap + " shows some creativity in assignments but has room to enhance originality.";
+                return "For the most part" + genderPronoun
+                        + " is usually pretty dependable when it comes to assisting peers and positively contributing to group projects. However, "
+                        + pronounSubject + " may fall short due to " + pronounPossessive + " numerous commitments. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + " consistently demonstrates creativity and originality in assignments and projects.";
+                        + "demonstrates a strong sense of responsibility and dependability. " + genderPronounCap
+                        + " is usually very punctual and ready to learn once " + pronounSubject
+                        + " enters the classroom. ";
             } else {
-                return genderPronounCap + " excels in creativity, consistently providing original and innovative work.";
+                return "When" + genderPronoun
+                        + " receives an assignment, " + pronounSubject + " makes it " + pronounPossessive
+                        + "utmost duty to complete it with great care and attention to detail. ";
+            }
+        }
+
+        // Adept
+        else if (category.equals("Adept")) {
+            if (value < 4) {
+                return "It is difficult for " + pronounObject + " to keep up in class because " + pronounSubject
+                        + " is typically a much slower learner than " + pronounPossessive + " other classmates. ";
+            } else if (value < 7) {
+                return genderPronounCap
+                        + " is naturally a very slow learner, but " + pronounSubject
+                        + " puts in the effort to try and boost " + pronounPossessive + " learning speed. ";
+            } else if (value < 9) {
+                return genderPronounCap + " is fairly quick at retaining information taught in class, and "
+                        + pronounSubject + " can usually explain back to me in " + pronounPossessive + " own words. ";
+            } else {
+                return genderPronounCap
+                        + " ability to retain information fully and efficiently is extremely impressive, allowing "
+                        + pronounObject + " to prepare for exams with minimal studying. ";
+            }
+        }
+
+        // Creativity
+        else if (category.equals("Creativity")) {
+            if (value < 4) {
+                return genderPronounCap
+                        + " lacks the creativity to find a solution to homework questions that are in an altered format from the way I've taught. ";
+            } else if (value < 7) {
+                return "Although" + genderPronoun + " creativity is not one of " + pronounPossessive
+                        + " stronger points, " + pronounSubject
+                        + " works hard to think outside of the box to solve unusual problems. ";
+            } else {
+                return genderPronounCap
+                        + " uses " + pronounPossessive
+                        + " exceptional creativity to think outside the box and utilize unique methods to solve problems. ";
             }
         }
         // If the category is not recognized, return an appropriate default description
