@@ -170,140 +170,172 @@ class StudentRating extends JFrame {
     }
 
     private String getRatingDescription(String category, int value) {
+        String studentGender = studentInfo.get("Gender");
+        String pronounSubject = "they";
+        String pronounPossessive = "their";
+        String pronounObject = "them";
+        String genderPronoun = studentInfo.get("Gender").equals("She/Her") ? "she" : "he";
+        String genderPronounCap = studentInfo.get("Gender").equals("She/Her") ? "She" : "He";
+
+        if (studentGender.equals("He/Him")) {
+            pronounSubject = "he";
+            pronounPossessive = "his";
+            pronounObject = "him";
+        } else if (studentGender.equals("She/Her")) {
+            pronounSubject = "she";
+            pronounPossessive = "her";
+            pronounObject = "her";
+        }
+
         if (category.equals("Leadership")) {
             if (value < 4) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is unfortunately, not a natural leader. " +
-                            "She finds it hard to take initiative when collaborating with and also with communication";
-                } else {
-                    return "She is unfortunately, not a natural leader. " +
-                            "She finds it hard to take initiative when collaborating with and also with communication";
-                }
+                return pronounSubject + " is unfortunately, not a natural leader. " +
+                        pronounSubject
+                        + " finds it hard to take initiative when collaborating with others and also with communication.";
             } else if (value < 7) {
-                return "She does occasionally show flashes of a leader, but Her lack of willingess to communicate during class hinders Her potential.";
+                return "While " + pronounSubject + " does occasionally show flashes of leadership, " +
+                        pronounPossessive + " lack of willingness to communicate during class hinders "
+                        + pronounPossessive + " potential.";
             } else if (value < 9) {
-                return "She is a leader and regularly takes the initiatve when the oppurtunity is presented to her during times of collaboration.";
+                return pronounSubject
+                        + " is a leader and regularly takes the initiative when the opportunity is presented during times of collaboration.";
             } else {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is a natural leader. She always takes the initative when working with others while taking the time to make sure everyone on her team is on the same pace.";
-                } else {
-                    return "She is a natural leader. She always takes the initative when working with others while taking the time to make sure everyone on her team is on the same pace.";
-                }
+                return pronounSubject +
+                        " always takes the initiative when working with others while taking the time to make sure everyone on "
+                        + pronounPossessive + " team is on the same page.";
             }
         }
 
         if (category.equals("Participation")) {
             if (value < 4) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "Unfortunately, she rarely participates during class discussions or asks questions. " +
-                            "This often leads to not performing well on tests and quizzes, which may hinder her in any college courses she takes.";
-                } else {
-                    return "Unfortunately, he rarely participates during class discussions or asks questions. " +
-                            "This often leads to not performing well on tests and quizzes, which may hinder him in any college courses he takes.";
-                }
+                return "Unfortunately, " + genderPronoun
+                        + " rarely participates during class discussions or asks questions. This often leads to poor performance on tests and quizzes, which may hinder "
+                        + genderPronoun + " in college courses.";
             } else if (value < 7) {
-                return "She occasionally asks for help on concepts she may not understand, but her participation during class discussions usually stays at a minimum.";
+                return genderPronounCap
+                        + " occasionally asks for help on unfamiliar concepts, but participation in class discussions remains minimal.";
             } else if (value < 9) {
-                return "She regularly asks questions about past or new concepts. Although sometimes hesitant to give her personal input during class discussions, she is never afraid to reach out for support.";
+                return genderPronounCap
+                        + " regularly asks questions about past or new concepts and is not afraid to seek support.";
             } else {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is unafraid to ask questions on any concepts that may concern her. She regularly raises her hand to quench her urge to understand even the minor details. Her willingness to reach out for support will help her be successful in any college course she takes.";
-                } else {
-                    return "He is unafraid to ask questions on any concepts that may concern him. He regularly raises his hand to quench his urge to understand even the minor details. His willingness to reach out for support will help him be successful in any college course he takes.";
-                }
+                return genderPronounCap
+                        + " is unafraid to ask questions and actively engages in class, which will help "
+                        + genderPronoun + " succeed in college courses.";
             }
         } else if (category.equals("Work Ethic")) {
             if (value < 4) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "In addition, she provides minimal effort in my class. Her homework is turned in on time only about half the time, and usually with apparent minimal effort made."
-                            +
-                            " She does not take advantage of the class time I provide for students to work on homework, and she usually scores low on quizzes and tests.";
-                } else {
-                    return "In addition, he provides minimal effort in my class. His homework is turned in on time only about half the time, and usually with apparent minimal effort made."
-                            +
-                            " He does not take advantage of the class time I provide for students to work on homework, and he usually scores low on quizzes and tests.";
-                }
+                return "In addition, " + genderPronoun
+                        + " provides minimal effort in the class, often turning in homework late with minimal effort and scoring low on quizzes and tests.";
             } else if (value < 7) {
-                return "She provides an acceptable amount of effort in my class. For the most part, she tries to turn in most of her work on time and sometimes utilizes the provided class time to study or do her homework. However, her performance on quizzes and tests aren't always within the class average, but with the proper effort, I believe she could be very successful.";
+                return genderPronounCap + " provides an acceptable amount of effort, but with more effort, "
+                        + genderPronoun + " could be very successful.";
             } else if (value < 9) {
-                return "She has a great work ethic when it comes to my class. She rarely submits any assignments to me late and takes great care with completing her homework with great effort. For the most part, her scores on tests reflect the time and effort she puts into the class.";
+                return genderPronounCap + " has a great work ethic, submitting assignments on time with great effort.";
             } else {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is an exceptional student that consistently displays a stellar work ethic inside and outside the classroom. She is very proactive on her homework assignments by completing as much as possible over the weekend. Students look to her to be their role model of superb work habits and respectful behavior inside and outside the classroom.";
-                } else {
-                    return "He is an exceptional student that consistently displays a stellar work ethic inside and outside the classroom. He is very proactive on his homework assignments by completing as much as possible over the weekend. Students look to him to be their role model of superb work habits and respectful behavior inside and outside the classroom.";
-                }
+                return genderPronounCap
+                        + " is an exceptional student with a stellar work ethic inside and outside the classroom.";
             }
-        }
-        if (category.equals("Personality")) {
+        } else if (category.equals("Personality")) {
             if (value < 4) {
-                return "She hasn't made much effort to get to know the other students in class, so I haven't seen her personality shine through yet. I would hope that one day she would open up so I will have the opportunity to get to know her real personality.";
+                return "The student hasn't made much effort to get to know classmates, so their personality hasn't shined through yet.";
             } else if (value < 7) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She shows politeness when greeting me at the beginning of class, but sometimes when I engage in a conversation with her, she appears distracted and inattentive to our conversations.";
-                } else {
-                    return "He shows politeness when greeting me at the beginning of class, but sometimes when I engage in a conversation with him, he appears distracted and inattentive to our conversations.";
-                }
+                return genderPronounCap
+                        + " shows politeness when greeting but can sometimes appear distracted during conversations.";
             } else if (value < 9) {
-                return "She keeps the class atmosphere amusing with her silliness and humor. Although it is a little too distracting to the class once in a while, her presence in the class is always appreciated.";
+                return "The student keeps the class atmosphere amusing with silliness and humor.";
             } else {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is an extremely silly person that always successfully makes me laugh. She is a great student and friend to be around that emanates positivity wherever she goes.";
-                } else {
-                    return "He is an extremely silly person that always successfully makes me laugh. He is a great student and friend to be around that emanates positivity wherever he goes.";
-                }
+                return genderPronounCap
+                        + " is an extremely silly person who always successfully makes others laugh and emanates positivity.";
             }
         } else if (category.equals("Attitude")) {
             if (value < 4) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "Although she is a bright individual in some settings, I believe it is important to address her attitude and behavior in class. She will often intercede during my discussions with disrespectful comments and shows a disinterest in the subject.";
-                } else {
-                    return "Although he is a bright individual in some settings, I believe it is important to address his attitude and behavior in class. He will often intercede during my discussions with disrespectful comments and shows a disinterest in the subject.";
-                }
+                return "Although the student is bright, it is important to address their attitude and behavior in class, as they often intercede with disrespectful comments.";
             } else if (value < 7) {
-                return "She commonly brings an okay attitude to my class. She generally brings a positive attitude to my classroom and seldom disrupts myself or other students.";
+                return genderPronounCap
+                        + " commonly brings an okay attitude to class and generally brings a positive attitude.";
             } else if (value < 9) {
-                return "She has displayed a very positive attitude in my classroom that I would like to commend. She is very courteous when interacting with me and her classmates, and she never hesitates to ask further questions on certain concepts.";
+                return genderPronounCap
+                        + " has displayed a very positive attitude in class, being courteous and eager to ask questions.";
             } else {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She is an exceptional student that consistently displays a stellar attitude inside and outside the classroom. She is very proactive on her homework assignments by completing as much as possible over the weekend.";
-                } else {
-                    return "He is an exceptional student that consistently displays a stellar attitude inside and outside the classroom. He is very proactive on his homework assignments by completing as much as possible over the weekend.";
-                }
+                return genderPronounCap
+                        + " is an exceptional student who consistently displays a stellar attitude inside and outside the classroom.";
             }
         } else if (category.equals("Listening")) {
             if (value < 4) {
-                if (studentInfo.get("Gender").equals("She/Her")) {
-                    return "She faces significant challenges when paying attention to the material being taught in class. She does demonstrate the capability to understand the concepts taught in class, but her limited listening skills have been a roadblock to her overall engagement.";
-                } else {
-                    return "He faces significant challenges when paying attention to the material being taught in class. He does demonstrate the capability to understand the concepts taught in class, but his limited listening skills have been a roadblock to his overall engagement.";
-                }
+                return genderPronounCap
+                        + " faces challenges in paying attention to the material but demonstrates the capability to understand the concepts.";
             } else if (value < 7) {
-                return "She has an adequate level of listening skills to understand the concepts being taught in class. Although she doesn't particularly excel in this area, it is acceptable enough for her to decently contribute to class discussions and follow my directions.";
+                return genderPronounCap + " has an adequate level of listening skills to understand class content.";
             } else if (value < 9) {
-                return "She has a commendable level of listening skills that serve her well in class. She is able to absorb the content at a good rate that allows her to complete her homework and assignments efficiently.";
+                return genderPronounCap + " has commendable listening skills, absorbing content efficiently.";
             } else {
-                return "She has a great talent for listening which has treated her well in her learning environment. In her relationships, she has the rare ability to make her peers feel heard and understood, and this rare gift also supports her understanding when she is actively listening to my lessons.";
+                return genderPronounCap
+                        + " has a great talent for listening and makes peers feel heard and understood.";
             }
         } else if (category.equals("Collaboration")) {
             if (value < 4) {
-                return "Although she has a lot of potential, her collaboration is an area she can vastly improve on. She often struggles to effectively contribute to group efforts and discussions and can often even hinder the group. I believe she has the potential to grow in this area, but I regret to inform that I haven't seen too much progress on this though.";
+                return "Although the student has potential, their collaboration is an area they can vastly improve on, often struggling to contribute effectively to group efforts.";
             } else if (value < 7) {
-                return "She demonstrates satisfactory collaboration capabilities, allowing her to somewhat contribute to group projects. Although she shows a willingness to work with others, getting along with others more effectively is certainly an area she can grow in.";
+                return genderPronounCap
+                        + " demonstrates satisfactory collaboration capabilities, allowing them to contribute to group projects.";
             } else if (value < 9) {
-                return "She possesses the remarkable ability to actively make positive contributions in any team or group. She has a natural talent to bring out the best in her classmates, which contributes to her group's ability to be productive.";
+                return genderPronounCap
+                        + " possesses the remarkable ability to make positive contributions in any team or group.";
             } else {
-                return "She never fails to impress me with her willingness to offer assistance to her classmates. She is very adaptable, solution-oriented, and has an open persona that makes her a wonderful partner to collaborate with. This unique skill will certainly serve her well in her academic and professional settings.";
+                return genderPronounCap
+                        + " never fails to impress with willingness to offer assistance and is a wonderful partner to collaborate with.";
             }
         } else if (category.equals("Dependability")) {
             if (value < 4) {
-                return "Although this is not the brightest assessment of her dependability as a student, I believe this area is important to address. Her lack of reliability in meeting deadlines and completing assignments is not tolerable. She would greatly benefit from guidance in achieving these goals, but as of this time, she has shown that she is incapable of being dependable.";
+                return "The student's lack of reliability in meeting deadlines and completing assignments is not tolerable and needs improvement.";
             } else if (value < 7) {
-                return "For the most part, she is usually pretty dependable when it comes to assisting peers and positively contributing to group projects. Occasionally she falls short at times with her commitments, but overall she will strive to be a dependable asset to any group she works with.";
+                return genderPronounCap
+                        + " is usually pretty dependable when assisting peers and contributing to group projects.";
             } else if (value < 9) {
-                return "She effectively manages to meet her commitments and contributes reliably to her group's efforts. Her consistency in being dependable is commendable and greatly benefits the team's success.";
+                return genderPronounCap
+                        + " effectively manages to meet commitments and contributes reliably to group efforts.";
             } else {
-                return "She has an outstanding track record of dependability. Her dedication to meeting her commitments and consistently contributing to group efforts is truly remarkable. She serves as a role model for her peers in this regard.";
+                return genderPronounCap
+                        + " has an outstanding track record of dependability, serving as a role model for peers.";
+            }
+        }
+
+        if (category.equals("Listening Skills")) {
+            if (value < 4) {
+                return genderPronounCap
+                        + " faces challenges when paying attention to the material being taught in class but demonstrates the capability to understand the concepts.";
+            } else if (value < 7) {
+                return genderPronounCap
+                        + " has an adequate level of listening skills to understand the concepts being taught in class.";
+            } else if (value < 9) {
+                return genderPronounCap + " has commendable listening skills that serve well in class.";
+            } else {
+                return genderPronounCap
+                        + " has a great talent for listening and makes peers feel heard and understood.";
+            }
+        } else if (category.equals("Adept")) {
+            if (value < 4) {
+                return "Although " + genderPronoun
+                        + " has potential, there's room for improvement in the adeptness of certain skills or subjects.";
+            } else if (value < 7) {
+                return genderPronounCap
+                        + " demonstrates satisfactory skills in the area, with potential for further improvement.";
+            } else if (value < 9) {
+                return genderPronounCap + " excels in the subject and consistently displays adeptness.";
+            } else {
+                return genderPronounCap + " is exceptionally adept in the subject and stands out as a role model.";
+            }
+        } else if (category.equals("Creativity")) {
+            if (value < 4) {
+                return genderPronounCap
+                        + " needs to work on expressing creativity and originality in assignments and projects.";
+            } else if (value < 7) {
+                return genderPronounCap + " shows some creativity in assignments but has room to enhance originality.";
+            } else if (value < 9) {
+                return genderPronounCap
+                        + " consistently demonstrates creativity and originality in assignments and projects.";
+            } else {
+                return genderPronounCap + " excels in creativity, consistently providing original and innovative work.";
             }
         }
         // If the category is not recognized, return an appropriate default description
