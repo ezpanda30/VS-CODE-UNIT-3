@@ -116,6 +116,7 @@ class StudentRating extends JFrame {
 
         JLabel[] labels = {
                 new JLabel("Leadership"), new JLabel("Participation"), new JLabel("Work Ethic"),
+                new JLabel("Personality"),
                 new JLabel("Attitude"), new JLabel("Listening Skills"), new JLabel("Collaboration"),
                 new JLabel("Dependability"), new JLabel("Adept"), new JLabel("Creativity")
         };
@@ -182,60 +183,91 @@ class StudentRating extends JFrame {
             pronounPossessive = "her";
             pronounObject = "her";
         }
-
+        // Leadership
         if (category.equals("Leadership")) {
             if (value < 4) {
-                return pronounSubject + " is unfortunately, not a natural leader. " +
+                return "Although " + pronounSubject + "  tries to take any leadership position very seriously, " +
                         pronounSubject
-                        + " finds it hard to take initiative when collaborating with others and also with communication.";
+                        + "leadership skills are not at a high enough level to effectively lead" + pronounSubject
+                        + " group to success. ";
             } else if (value < 7) {
-                return "While " + pronounSubject + " does occasionally show flashes of leadership, " +
-                        pronounPossessive + " lack of willingness to communicate during class hinders " +
-                        pronounPossessive + " potential.";
+                return "Although being a leader isn't a natural quality " + pronounSubject + " possesses, "
+                        + pronounSubject + " continues to show some progress in this area with " + pronounObject
+                        + " determination and dedication. ";
             } else if (value < 9) {
                 return pronounSubject
-                        + " is a leader and regularly takes the initiative when the opportunity is presented during times of collaboration.";
+                        + " possesses great leadership potential through her collaboration during group activities. With even more practice, I have no doubt"
+                        + pronounSubject + " will become a marveolous leader";
+
             } else {
-                return pronounSubject
-                        + " always takes the initiative when working with others while taking the time to make sure everyone on "
-                        +
-                        pronounPossessive + " team is on the same page.";
+                return pronounSubject +
+                        " possesses the rare and natural talent to effortlessly lead a group with " + pronounObject
+                        + " unwavering confidence and friendly persona. ";
             }
         }
+
+        // Participation
 
         if (category.equals("Participation")) {
             if (value < 4) {
                 return "Unfortunately, " + genderPronoun
-                        + " rarely participates during class discussions or asks questions. " +
-                        "This often leads to poor performance on tests and quizzes, which may hinder " + genderPronoun
-                        + " in college courses.";
+                        + " rarely participates during class discussions or asks questions " + pronounSubject
+                        + " may have concerning the homework. " +
+                        "This often leads " + pronounObject
+                        + " to not perform well on tests and quizzes which may hinder " + pronounObject
+                        + " in any college courses " + pronounSubject + " takes. ";
             } else if (value < 7) {
                 return genderPronounCap
-                        + " occasionally asks for help on unfamiliar concepts, but participation in class discussions remains minimal.";
+                        + " occasionally asks me for help on concepts " + pronounSubject + " may not understand, but "
+                        + pronounObject + " participation during class discussions usually stay to a minimum. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + " regularly asks questions about past or new concepts and is not afraid to seek support.";
+                        + "regularly asks me questions about about past or new concepts that we have learned. Although sometimes hesitant to give"
+                        + pronounObject + " personal " +
+                        "input during class discussions," + pronounObject
+                        + " is usually not afraid to reach out to for further explanation. ";
             } else {
-                return genderPronounCap
-                        + " is unafraid to ask questions and actively engages in class, which will help "
-                        + genderPronoun + " succeed in college courses.";
+                return genderPronounCap +
+                        " is unafraid to ask questions on any concepts that may concern " + pronounObject + ". "
+                        + pronounSubject + " regularly raises " + pronounObject + " hand to quench " + pronounObject
+                        + " urge to " +
+                        "understand even the minor details. ";
+
             }
-        } else if (category.equals("Work Ethic")) {
+        }
+
+        // Work Ethic
+
+        else if (category.equals("Work Ethic")) {
             if (value < 4) {
                 return "In addition, " + genderPronoun
-                        + " provides minimal effort in the class, often turning in homework late with minimal effort and scoring low on quizzes and tests.";
+                        + "does not take advantage of the class time I provide for students to work on homework. ";
             } else if (value < 7) {
-                return genderPronounCap + " provides an acceptable amount of effort, but with more effort, "
-                        + genderPronoun + " could be very successful.";
+                return genderPronounCap + "  provides an acceptable amount of effort in my class. For the most part, "
+                        + genderPronoun + " tries to turn in most of " + pronounObject
+                        + " work on time, and sometimes utilizes the " + "provided class time to study or do "
+                        + pronounObject + " homework. ";
             } else if (value < 9) {
-                return genderPronounCap + " has a great work ethic, submitting assignments on time with great effort.";
+                return genderPronounCap + " has a great work ethic when it comes to my class. For the most part, "
+                        + pronounObject + "'s scores on tests reflect the time and effort " + pronounSubject
+                        + " puts into the class. ";
             } else {
                 return genderPronounCap
-                        + " is an exceptional student with a stellar work ethic inside and outside the classroom.";
+                        + " has an excellent work ethic in my class. " + pronounSubject
+                        + " has never submitted an assignment late, and it's clear how " + pronounSubject
+                        + " carefully reviews " + pronounObject + " multiple times to ensure that" + pronounSubject
+                        + " understands the concepts. ";
             }
-        } else if (category.equals("Personality")) {
+        }
+
+        // Personality
+
+        else if (category.equals("Personality")) {
             if (value < 4) {
-                return "The student hasn't made much effort to get to know classmates, so their personality hasn't shined through yet.";
+                return genderPronoun
+                        + " hasn't made much effort to get to know the other students in class, so I haven't seen "
+                        + genderPronoun + " personality shine through yet. " + "I would hope that one day "
+                        + genderPronoun + " would open up to me and " + genderPronoun + " other classmates. ";
             } else if (value < 7) {
                 return genderPronounCap
                         + " shows politeness when greeting but can sometimes appear distracted during conversations.";
@@ -245,7 +277,9 @@ class StudentRating extends JFrame {
                 return genderPronounCap
                         + " is an extremely silly person who always successfully makes others laugh and emanates positivity.";
             }
-        } else if (category.equals("Attitude")) {
+        }
+
+        else if (category.equals("Attitude")) {
             if (value < 4) {
                 return "Although the student is bright, it is important to address their attitude and behavior in class, as they often intercede with disrespectful comments.";
             } else if (value < 7) {
