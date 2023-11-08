@@ -4,6 +4,12 @@ import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
 
+//Citations:
+//https://www.javatpoint.com/java-hashmap - All these links Helped me to use Hashmap along with some help from ChatGpt to intergrate it into my code
+//https://www.programiz.com/java-programming/hashmap  
+//https://stackoverflow.com/questions/34601003/i-have-a-hashmap-how-can-i-integrate-it-with-gui-i-want-to-type-in-the-integer 
+// Java Ternary - https://www.geeksforgeeks.org/java-ternary-operator-with-examples/ and https://stackoverflow.com/questions/12643973/java-calling-a-method-using-a-ternary-operator 
+
 public class LetterOfRecommendationWriter {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -156,6 +162,9 @@ class StudentRating extends JFrame {
         });
     }
 
+    // Java Ternary -
+    // https://www.geeksforgeeks.org/java-ternary-operator-with-examples/ and
+    // https://stackoverflow.com/questions/12643973/java-calling-a-method-using-a-ternary-operator
     private String getRatingDescription(String category, int value) {
         String studentGender = studentInfo.get("Gender");
         String pronounSubject = "they";
