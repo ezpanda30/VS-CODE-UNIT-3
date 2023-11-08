@@ -540,6 +540,11 @@ class StudentRating extends JFrame {
             letter.append("Gender: ").append(studentInfo.get("Gender")).append("\n");
             letter.append("Unweighted GPA: ").append(studentInfo.get("Unweighted GPA")).append("\n");
             letter.append("Number of AP Classes: ").append(studentInfo.get("Number of AP Classes")).append("\n\n");
+            letter.append("Teacher Information:\n");
+            for (Map.Entry<String, String> entry : teacherInfo.entrySet()) {
+                letter.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+            }
+            letter.append("\n");
 
             letter.append("To Whom It May Concern,\n\n");
             letter.append("I would like to recommend my student ").append(studentInfo.get("Student Name"))
@@ -547,11 +552,6 @@ class StudentRating extends JFrame {
             letter.append("I have had the privilege of being ")
                     .append(studentInfo.get("Student Name"));
             letter.append(" in my class, and it has been a truly remarkable experience.\n\n");
-            letter.append("Teacher Information:\n");
-            for (Map.Entry<String, String> entry : teacherInfo.entrySet()) {
-                letter.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
-            }
-            letter.append("\n");
 
             letter.append("In terms of the ratings, here is what I would say about ")
                     .append(studentInfo.get("Student Name")).append(":\n");
