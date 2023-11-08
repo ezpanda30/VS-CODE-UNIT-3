@@ -256,7 +256,7 @@ class StudentRating extends JFrame {
                 return genderPronounCap
                         + " has an excellent work ethic in my class. " + genderPronounCap
                         + " has never submitted an assignment late, and it's clear how " + pronounSubject
-                        + " carefully reviews " + pronounPossessive + " work multiple times to ensure that" +
+                        + " carefully reviews " + pronounPossessive + " work multiple times to ensure that " +
                         pronounSubject + " understands the concepts. ";
             }
         }
