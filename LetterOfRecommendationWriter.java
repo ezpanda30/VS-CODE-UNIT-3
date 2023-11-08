@@ -188,7 +188,7 @@ class StudentRating extends JFrame {
             if (value < 4) {
                 return "Although " + pronounSubject + "  tries to take any leadership position very seriously, " +
                         pronounPossessive
-                        + "leadership skills are not at a high enough level to effectively lead" + pronounPossessive
+                        + " leadership skills are not at a high enough level to effectively lead" + pronounPossessive
                         + " group to success. ";
             } else if (value < 7) {
                 return "Although being a leader isn't a natural quality " + pronounSubject + " possesses, "
@@ -196,8 +196,8 @@ class StudentRating extends JFrame {
                         + " determination and dedication. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + " possesses great leadership potential through collaboration during group activities. With even more practice, I have no doubt"
-                        + pronounSubject + " will become a marveolous leader";
+                        + " possesses great leadership potential through collaboration during group activities. With even more practice, I have no doubt "
+                        + pronounSubject + " will become a marveolous leader.";
 
             } else {
                 return genderPronounCap +
@@ -222,7 +222,7 @@ class StudentRating extends JFrame {
                         + pronounPossessive + " participation during class discussions usually stay to a minimum. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + "regularly asks me questions about about past or new concepts that we have learned. Although sometimes hesitant to give"
+                        + " regularly asks me questions about about past or new concepts that we have learned. Although sometimes hesitant to give"
                         + pronounPossessive + " personal " +
                         "input during class discussions," + pronounObject
                         + " is usually not afraid to reach out to for further explanation. ";
@@ -267,7 +267,7 @@ class StudentRating extends JFrame {
             if (value < 4) {
                 return genderPronounCap
                         + " hasn't made much effort to get to know the other students in class, so I haven't seen "
-                        + genderPronoun + " personality shine through yet. " + "I would hope that one day "
+                        + pronounPossessive + " personality shine through yet. " + "I would hope that one day "
                         + genderPronoun + " would open up to me and " + pronounPossessive + " other classmates. ";
             } else if (value < 7) {
                 return genderPronounCap +
@@ -388,18 +388,18 @@ class StudentRating extends JFrame {
                         + " is a very busy individual with many extracurriculars, but " + pronounPossessive
                         + " lack of reliability in meeting deadlines and completing assignments is not tolerable. ";
             } else if (value < 7) {
-                return "For the most part" + genderPronoun
+                return "For the most part " + genderPronoun
                         + " is usually pretty dependable when it comes to assisting peers and positively contributing to group projects. However, "
                         + pronounSubject + " may fall short due to " + pronounPossessive + " numerous commitments. ";
             } else if (value < 9) {
                 return genderPronounCap
-                        + "demonstrates a strong sense of responsibility and dependability. " + genderPronounCap
+                        + " demonstrates a strong sense of responsibility and dependability. " + genderPronounCap
                         + " is usually very punctual and ready to learn once " + pronounSubject
                         + " enters the classroom. ";
             } else {
-                return "When" + genderPronoun
+                return "When " + genderPronoun
                         + " receives an assignment, " + pronounSubject + " makes it " + pronounPossessive
-                        + "utmost duty to complete it with great care and attention to detail. ";
+                        + " utmost duty to complete it with great care and attention to detail. ";
             }
         }
 
@@ -535,6 +535,12 @@ class StudentRating extends JFrame {
         private void generateLetter() {
             StringBuilder letter = new StringBuilder();
 
+            letter.append("Student Information:\n");
+            letter.append("Name: ").append(studentInfo.get("Student Name")).append("\n");
+            letter.append("Gender: ").append(studentInfo.get("Gender")).append("\n");
+            letter.append("Unweighted GPA: ").append(studentInfo.get("Unweighted GPA")).append("\n");
+            letter.append("Number of AP Classes: ").append(studentInfo.get("Number of AP Classes")).append("\n\n");
+
             letter.append("To Whom It May Concern,\n\n");
             letter.append("I would like to recommend my student ").append(studentInfo.get("Student Name"))
                     .append(" for the 2024-2025 school year. ");
@@ -546,12 +552,6 @@ class StudentRating extends JFrame {
                 letter.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
             }
             letter.append("\n");
-
-            letter.append("Student Information:\n");
-            letter.append("Name: ").append(studentInfo.get("Student Name")).append("\n");
-            letter.append("Gender: ").append(studentInfo.get("Gender")).append("\n");
-            letter.append("Unweighted GPA: ").append(studentInfo.get("Unweighted GPA")).append("\n");
-            letter.append("Number of AP Classes: ").append(studentInfo.get("Number of AP Classes")).append("\n\n");
 
             letter.append("In terms of the ratings, here is what I would say about ")
                     .append(studentInfo.get("Student Name")).append(":\n");
